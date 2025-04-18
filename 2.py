@@ -48,13 +48,13 @@ def save_score(user_id, score, level):
         with conn.cursor() as cur:
             cur.execute("INSERT INTO user_score (user_id, score, level) VALUES (%s, %s, %s)", (user_id, score, level))
         conn.commit()
-    print("✅ Счёт сохранён!")
+    print(" Счёт сохранён!")
 
 
 def snake_game(user_id, level):
     pygame.init()
     screen = pygame.display.set_mode((400, 400))
-    pygame.display.set_caption("Змейка 🐍")
+    pygame.display.set_caption("Змейка ")
     clock = pygame.time.Clock()
 
     snake = [[200, 200]]
@@ -107,7 +107,7 @@ def snake_game(user_id, level):
                 new_head[0] < 0 or new_head[0] >= 400 or
                 new_head[1] < 0 or new_head[1] >= 400
             ):
-                print("💀 Игра окончена!")
+                print("Игра окончена!")
                 save_score(user_id, score, level)
                 running = False
                 continue
